@@ -19,7 +19,7 @@ const App = () => {
           },
         },
       );
-      const answer = response.data[0].title;
+      const answer = response.data[value];
       return answer;
     } catch (error) {
       console.error('Ошибка при получении ответа:', error);
