@@ -5,7 +5,6 @@ import { addMessage } from './components/store/chatSlice/chatSlice';
 
 const App = () => {
   const state = useSelector((state) => state.chat);
-  console.log(state);
 
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
@@ -14,6 +13,11 @@ const App = () => {
     try {
       const response = await axios.get(
         'https://64b519e9f3dbab5a95c6b423.mockapi.io/todos',
+        {
+          params: {
+            q: value,
+          },
+        },
       );
       const answer = response.data[0].title;
       return answer;
